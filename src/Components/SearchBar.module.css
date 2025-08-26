@@ -1,0 +1,30 @@
+.search {
+  width:25vw;
+  height:3vw;
+  padding: 10px 15px;
+  border: 2px solid #ff2e2e;   /* red border */
+  border-radius: 25px;
+  background-color: #111;      /* black background */
+  color: #fff;                 /* white text */
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+
+/* When user focuses on input */
+.search:focus {
+  border-color: #ff4d4d;
+  box-shadow: 0 0 10px rgba(255, 46, 46, 0.6);
+}
+
+/* Placeholder style */
+.search::placeholder {
+  color: #aaa;
+}
+@media (max-width: 768px){
+    
+   .search{
+    width:80vw;
+   }
+}

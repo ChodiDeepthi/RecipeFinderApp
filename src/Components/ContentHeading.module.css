@@ -1,0 +1,45 @@
+.heading {
+  font-size: 3rem;          /* large heading for desktop */
+  font-weight: 800;
+  color: #ee4343;           /* red accent */
+  text-align: center;
+  margin: 20px 0 10px 0;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.description {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #f0f0f0;           /* soft white */
+  text-align: center;
+  max-width: 600px;         /* keep text readable */
+  margin: 0 auto 20px auto;
+  line-height: 1.5;
+}
+
+/* ---------- Tablets ---------- */
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 2.4rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    max-width: 500px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .heading {
+    font-size: 1.8rem;
+    margin: 15px 0 8px 0;
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 0 15px;     /* some breathing room on sides */
+    max-width: 100%;
+  }
+}
