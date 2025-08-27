@@ -6,7 +6,7 @@ export const fetchRecipes=createAsyncThunk
     'recipes/fetchRecipes',
     async (searchTerm)=>{
         const url="https://api.spoonacular.com/recipes/complexSearch";
-        const apiKey="d6a89bdf0d614d17921328c1310096ad";
+        const apiKey= import.meta.env.VITE_API_KEY;
         const res=await axios.get(`${url}?query=${searchTerm}&apiKey=${apiKey}`);
         return res.data.results
     }
@@ -17,7 +17,7 @@ export const fetchRandomRecipes = createAsyncThunk(
   'recipes/fetchRandomRecipes',
   async () => {
     const url = "https://api.spoonacular.com/recipes/random";
-    const apiKey = "d6a89bdf0d614d17921328c1310096ad";
+    const apiKey = import.meta.env.VITE_API_KEY;
     const res = await axios.get(`${url}?number=30&apiKey=${apiKey}`);
     return res.data.recipes;
   }
@@ -27,7 +27,7 @@ export const fetchRecipeDetails = createAsyncThunk(
   'recipes/fetchRecipeDetails',
   async (recipeId) => {
     const url = `https://api.spoonacular.com/recipes/${recipeId}/information`;
-    const apiKey = "d6a89bdf0d614d17921328c1310096ad";
+    const apiKey = import.meta.env.VITE_API_KEY;
     const res = await axios.get(`${url}?includeNutrition=true&apiKey=${apiKey}`);
     return res.data; // full detailed recipe data
   }
