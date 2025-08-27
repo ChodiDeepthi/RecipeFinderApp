@@ -18,7 +18,7 @@ export const fetchRandomRecipes = createAsyncThunk(
   async () => {
     const url = "https://api.spoonacular.com/recipes/random";
     const apiKey = import.meta.env.VITE_API_KEY;
-    const res = await axios.get(`${url}?number=30&apiKey=${apiKey}`);
+    const res = await axios.get(`${url}?number=28&apiKey=${apiKey}`);
     return res.data.recipes;
   }
 );
