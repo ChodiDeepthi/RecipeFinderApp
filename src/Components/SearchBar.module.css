@@ -1,30 +1,85 @@
-.search {
+.container1 {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  gap: 8px;
+  
+}
+
+/* Input */
+input {
   width:25vw;
-  height:3vw;
-  padding: 10px 15px;
-  border: 2px solid #ff2e2e;   /* red border */
+
+  padding: 8px 12px;
+  border: 2px solid #ff2e2e;
   border-radius: 25px;
-  background-color: #111;      /* black background */
-  color: #fff;                 /* white text */
-  font-size: 14px;
+  background-color: #111;
+  color: #fff;
+  font-size: clamp(14px, 1.2vw, 16px);
   outline: none;
   transition: all 0.3s ease;
 }
 
-
-/* When user focuses on input */
-.search:focus {
+input:focus {
   border-color: #ff4d4d;
   box-shadow: 0 0 10px rgba(255, 46, 46, 0.6);
 }
 
-/* Placeholder style */
-.search::placeholder {
+input::placeholder {
   color: #aaa;
 }
-@media (max-width: 768px){
+
+/* Button */
+.Searchbutton button {
+  padding: 8px 12px;
+  width:8vw;
+  border: none;
+  border-radius: 20px;
+  background: #ff2e2e;
+  color: white;
+  font-size: clamp(13px, 1.2vw, 15px);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.Searchbutton button:hover {
+  background: #ff4d4d;
+  transform: scale(1.05);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .container1 {
     
-   .search{
-    width:80vw;
-   }
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  input {
+    width: 30vw;
+  }
+
+  .Searchbutton button {
+    width: 20vw;
+    padding: 8px 12px;
+  }
+}
+
+/* Very small mobile */
+@media (max-width: 480px) {
+  .container1 {
+    
+    align-items: center;
+    
+  }
+
+  input {
+    width: 50vw!important;
+  }
+
+  .Searchbutton button {
+    width: 32vw!important;
+    
+  }
 }

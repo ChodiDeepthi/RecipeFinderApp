@@ -1,42 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from "react";
+import { useSelector } from "react-redux";
+import styles from "./ResultItem.module.css";
 
 const ResultItem = () => {
-  const location = useLocation();
-  const { id } = location.state || {};
-  const [recipe, setRecipe] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { selectedRecipe, loading, error } = useSelector((state) => state.recipes);
 
-  const apiKey = "d6a89bdf0d614d17921328c1310096ad"; 
-
-  useEffect(() => {
-    if (id) {
-      fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`)
-        .then(res => res.json())
-        .then(data => {
-          setRecipe(data);
-          setLoading(false);
-        })
-        .catch(() => setLoading(false));
-    }
-  }, [id]);
-
-  if (loading) return <p>Loading recipe...</p>;
-  if (!recipe) return <p>No recipe found</p>;
+  if (loading) return <p>Loading recipe details...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!selectedRecipe) return <p>No recipe data available</p>;
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h2>{recipe.title}</h2>
-      <img src={recipe.image} alt={recipe.title} style={{ width: '400px', borderRadius: '10px' }} />
-      <p dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
-      <h3>Ingredients</h3>
-      <ul>
-        {recipe.extendedIngredients?.map((ing) => (
-          <li key={ing.id}>{ing.original}</li>
+    <div className={styles.recipecard}>
+      <h1 className={styles.recipename}>{selectedRecipe.title}</h1>
+      <img className={styles.recipeimage} src={selectedRecipe.image} alt={selectedRecipe.title} />
+
+      <div className={styles.recipedetails}>
+        <span><strong>⏱ {selectedRecipe.readyInMinutes} Minutes</strong></span>
+        <span><strong>Serves: {selectedRecipe.servings}</strong></span>
+        <span><strong>{selectedRecipe.vegetarian ? "Vegetarian 🥦" : "Non-veg 🍖"}</strong></span>
+        {selectedRecipe.vegan && <span><strong>Vegan 🌱</strong></span>}
+        <span><strong>💲 {selectedRecipe.pricePerServing / 100} per serving</strong></span>
+      </div>
+
+      {/* Instructions */}
+      <h2>Instructions</h2>
+      <div className={styles.recipeinstructions}>
+        {selectedRecipe.analyzedInstructions?.length > 0 ? (
+          <ol>
+            {selectedRecipe.analyzedInstructions[0].steps.map((step, i) => (
+              <li key={i}>{step.step}</li>
+            ))}
+          </ol>
+        ) : (
+          <p>No instructions available.</p>
+        )}
+      </div>
+
+      {/* Ingredients */}
+      <h2>Ingredients</h2>
+      <div className={styles.ingredients}>
+        {selectedRecipe.extendedIngredients?.map((item, i) => (
+          <div key={i}>
+            <h3>{item.name}</h3>
+            <p>Amount: {item.amount} {item.unit}</p>
+          </div>
         ))}
-      </ul>
-      <h3>Instructions</h3>
-      <div dangerouslySetInnerHTML={{ __html: recipe.instructions }}></div>
+      </div>
     </div>
   );
 };

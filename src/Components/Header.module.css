@@ -1,104 +1,68 @@
 .headerpart {
-  width: 100vw;
-  min-height: 12vh;
-  margin: 0 !important;
-  padding:0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #111;
-  padding: 12px 25px;
-  font-size: 1.2rem; 
+  min-height: 12vh;
+  width:100%;
+  padding: 12px 20px;
+  background-color: rgb(41, 41, 41);
+  
 }
 
 .logo img {
-  width: 30px;
-  height: 30px;
-  filter: invert(42%) sepia(98%) saturate(4231%) hue-rotate(340deg)
-    brightness(92%) contrast(90%);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  margin:0px;
-  margin-right: 20px;
-  align-self:flex-start;
-  padding:0px;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  filter: invert(42%) sepia(98%) saturate(4231%) hue-rotate(340deg) brightness(92%) contrast(90%);
+  transition: transform 0.2s;
 }
-
 .logo img:hover {
   transform: scale(1.1);
 }
 
-.headcontent {
-  flex: 1;
-  text-align: center;
-  font-weight: bold;
-  color: #ee4343; /* red accent */
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-}
-
 .container1 {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 200px;
 }
 
-/* ---------- Tablet & Mobile ---------- */
+.headcontent {
+  font-weight: bold;
+  color: #ee4343;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-size: clamp(1rem, 2vw, 1.6rem); /* responsive font size */
+}
+
+.container2 {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Tablet + Mobile */
 @media (max-width: 768px) {
-  .headerpart {
-    flex-direction: column;
   
-    padding: 15px;
-  }
+  
 
   .headcontent {
-    font-size: 1.2rem;
-    text-align: left;
-    margin-top: 8px;
-  }
-
-  .container1 {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .logo {
-    align-self: flex-start;
-  }
-
-  .logo img {
-    width: 32px;
-    height: 32px;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
   }
 }
 
-/* ---------- Small Phones ---------- */
+/* Very small mobile */
 @media (max-width: 480px) {
-  .headerpart {
-    padding: 10px;
-    align-items: center;
-  }
-
-  .headcontent {
-    font-size: 1rem;
-    text-align: center;
-    width: 100%;
-  }
-
-  .logo img {
-    width: 28px;
-    height: 28px;
-  }
-  .searchbar{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-  .searchbar{
-    display: flex;
-    margin:0px;
-   
+  
     
-   
+    .headerpart {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1rem;
+  }
+
+  
 }

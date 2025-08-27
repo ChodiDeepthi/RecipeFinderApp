@@ -4,7 +4,7 @@ import { fetchRecipes } from "../store/searchSlice";
 import { useDispatch } from "react-redux";
 
 function SearchBar() {
-  const [item, setitem] = useState("pizza");
+  const [item, setitem] = useState("");
  
   const dispatch = useDispatch();
  
@@ -19,15 +19,20 @@ function SearchBar() {
    console.log()
   return (
     <Fragment>
-      <input
-        type="text"
-        placeholder="🔍 Search recipes..."
-        className={styles.search}
-        value={item}
-        onChange={(e) => setitem(e.target.value)} // update only state
-      />
+      <div className={styles.container1}>
+        <div className={styles.Searchbar}>
+            <input
+                type="text"
+                placeholder="🔍 Search recipes..."
+                value={item}
+                onChange={(e) => setitem(e.target.value)} 
+            />
+        </div>
       
-      <button onClick={handleSearch}>Search</button>
+      <div className={styles.Searchbutton}>
+         <button onClick={handleSearch}>Search</button>
+      </div>
+    </div>
     </Fragment>
   );
 }

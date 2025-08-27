@@ -4,7 +4,7 @@ import styles from "./Item.module.css";
 function Item({ item }) {
   return (
     <Fragment>
-      <div className={styles.container}>
+      <div className={styles.container3}>
         <div className={styles.imagecontainer}>
           <img src={item.image} className={styles.modrenimage} alt={item.title} />
         </div>

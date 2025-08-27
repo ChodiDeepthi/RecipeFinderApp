@@ -33,7 +33,7 @@ function Home(){
                      <div className={styles.line1}>Cooking</div>
                     <div className={styles.line2}>Find best recipies for Cooking</div>
                    <div>
-                    <button onClick={() => navigate("/search")}>Start Cooking → </button>
+                    <button className={styles.searchbutton} onClick={() => navigate("/search")}>Start Cooking → </button>
                     </div>
                 </div>
             </Fragment>
