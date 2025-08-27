@@ -24,11 +24,16 @@
 
 .recipeimage {
   display: block;
-  width: 100%;
+  width: 50%;
+  height: 50%;
   max-height: 400px;
+  min-width: 300px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 40px;
   margin: 0 auto 20px auto;
+ border-width: 2px ;
+   border-style: solid;
+   border-color: #ff4d4d ;
 }
 
 .recipedetails {

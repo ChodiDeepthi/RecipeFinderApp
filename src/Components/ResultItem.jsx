@@ -12,8 +12,9 @@ const ResultItem = () => {
   return (
     <div className={styles.recipecard}>
       <h1 className={styles.recipename}>{selectedRecipe.title}</h1>
+      <div className={styles.imagecontainer}>
       <img className={styles.recipeimage} src={selectedRecipe.image} alt={selectedRecipe.title} />
-
+  </div>
       <div className={styles.recipedetails}>
         <span><strong>⏱ {selectedRecipe.readyInMinutes} Minutes</strong></span>
         <span><strong>Serves: {selectedRecipe.servings}</strong></span>
