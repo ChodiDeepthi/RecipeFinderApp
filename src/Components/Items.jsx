@@ -47,8 +47,8 @@ const Items = () => {
                 cursor: "pointer",
                 transition: "background 0.3s ease",
               }}
-              onMouseOver={(e) => (e.target.style.background = "#df3131ff")}
-              onMouseOut={(e) => (e.target.style.background = "#d31721ff")}
+              onMouseOver={(e) => (e.target.style.background = "#d12828ff")}
+              onMouseOut={(e) => (e.target.style.background = "red")}
             >
               More
             </button>
