@@ -115,7 +115,7 @@
     font-size: 1.6rem;
   }
   .recipeimage {
-    max-height: 220px;
+    max-height: 250px;
   }
   .recipedetails {
     flex-direction: column;

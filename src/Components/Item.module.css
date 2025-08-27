@@ -30,6 +30,7 @@
   color: #ee4343;
   text-align: center;
   padding: 12px;
+  min-height:100px;
 }
 @media (max-width:420px) {
     .imagecontainer {
